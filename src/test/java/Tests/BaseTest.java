@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 
 public class BaseTest {
-    static final String baseURL = PropertyManager.getInstance().getURL();
-    protected WebDriver driver;
+    public static String baseURL = "https://www.musala.com/" ;
+    public WebDriver driver;
 
     @AfterMethod
 
     public void AfterTesting() {
+        if (driver != null)
         driver.quit();
     }
 
