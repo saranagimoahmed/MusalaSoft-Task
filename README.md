@@ -1,0 +1,19 @@
+## MusalaSoft-Task
+The Framwork is built using Selenium WebDriver in Java Language and Designed using Page Object Model design pattern.
+Class for each web page which includes its element locators and methods.
+Base class to keep generic methods and Configuration File is created to keep info like URL , Files xpath .
+The Framwork support parallel execution and data driven testing from an Excel file.
+
+# Tools 
+Selenium Webdriver, Maven, TestNG, Apache POI and Extent Reports
+
+# Packages 
+
+Pages Package : 
+Helpers Package :
+Tests Package : 
+
+# Configuration File
+# Parallel Execution
+
+# Reporting
