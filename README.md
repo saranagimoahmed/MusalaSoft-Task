@@ -9,11 +9,13 @@ Selenium Webdriver, Maven, TestNG, Apache POI and Extent Reports
 
 # Packages 
 
-Pages Package : 
-Helpers Package :
-Tests Package : 
+Pages Package : Includes classes which contain webpages.
+Helpers Package :Includes Classes which help
+Tests Package : Includes all tests .
 
 # Configuration File
+This file stores the information which is used during testing  browser-specific information to support two browsers -chrome&firefox-, ScreenShots Folder Path, Base URL  and Test data path.
 # Parallel Execution
-
+Using TestNG XML file.
 # Reporting
+Using Extent Report .
