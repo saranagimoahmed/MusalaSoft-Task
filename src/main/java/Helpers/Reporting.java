@@ -9,12 +9,12 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Reporting {
     public static ExtentReports Report;
-   public static ExtentTest Test;
-   public static String TestCaseName ;
-   public static String Message ;
-   public static Markup Markup ;
-   public static Throwable Throwable ;
-   public static Media Media ;
+    public static ExtentTest Test;
+    public static String TestCaseName;
+    public static String Message;
+    public static Markup Markup;
+    public static Throwable Throwable;
+    public static Media Media;
 
     public static void Report() {
         Report = new ExtentReports();
@@ -30,7 +30,7 @@ public class Reporting {
         Test.skip(Throwable);
     }
 
-   public static void messageSkip() {
+    public static void messageSkip() {
         Test.skip(Message);
     }
 
@@ -39,7 +39,7 @@ public class Reporting {
     }
 
     public static void throwableFail() {
-        Test.fail(Throwable) ;
+        Test.fail(Throwable);
     }
 
     public static void markupFail() {
@@ -55,24 +55,24 @@ public class Reporting {
     }
 
     public static void messagePass(String s) {
-        Test.pass(Message) ;
+        Test.pass(Message);
     }
 
     public void markupInfo() {
-        Test.info(Markup) ;
+        Test.info(Markup);
     }
 
     public static void testCreation(String TestCaseName) {
         Test = Report.createTest(TestCaseName);
     }
 
-    public static void messageInfo (){
+    public static void messageInfo() {
         Test.info(Message);
     }
-    public static void removeTest(String description){
+
+    public static void removeTest(String description) {
         Report.removeTest(TestCaseName);
     }
-
 
 
     public static void reportFlush() {

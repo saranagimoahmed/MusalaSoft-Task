@@ -7,14 +7,12 @@ import java.util.Properties;
 public class PropertyManager {
     public static PropertyManager Instance;
     public static Object Obj = new Object();
-    public String FilePathProperty = System.getProperty("user.dir")+
-            "\\src\\main\\resources\\Configuration .properties";
+    public String FilePathProperty = System.getProperty("user.dir") + "\\src\\main\\resources\\Configuration .properties";
 
     public String Url;
     public String Browser;
     public String FilePathTestData;
     public String FilePathCV;
-
 
 
     public static PropertyManager getInstance() {
@@ -26,11 +24,11 @@ public class PropertyManager {
         }
         return Instance;
     }
+
     //Get all configuration data and assign to related fields.
-     private void DataLoading() {
+    private void DataLoading() {
 
         Properties Prop = new Properties();
-
 
 
         try {
@@ -38,26 +36,29 @@ public class PropertyManager {
             Url = Prop.getProperty("Url");
             Browser = Prop.getProperty("Browser");
             FilePathTestData = Prop.getProperty("FilePathTestData");
-            FilePathCV =Prop.getProperty("FilePathCV ");
+            FilePathCV = Prop.getProperty("FilePathCV");
             //prop.load(this.getClass().getClassLoader().getResourceAsStream("configuration.properties"));
         } catch (IOException e) {
             System.out.println("File Not Found");
         }
 
     }
-    public String getURL () {
+
+    public String getURL() {
         return Url;
     }
+
     public String getBrowser() {
         return Browser;
     }
+
     public String getFilePathTestData() {
         return FilePathTestData;
     }
-    public String getFilePathCV () {
+
+    public String getFilePathCV() {
         return FilePathCV;
     }
-
 
 
 }
