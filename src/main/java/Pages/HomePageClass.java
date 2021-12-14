@@ -10,28 +10,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.Thread.sleep;
 
 public class HomePageClass extends BaseClass {
-    //Elements
-    By  contactUs =  By.xpath("//button[@class='contact-label btn btn-1b']") ;
-    By  NameField =  By.xpath("//input[@id='cf-1']") ;
-    By  EmailField =  By.xpath("//input[@id='cf-2']") ;
-    By  SubjectField =  By.xpath("//input[@id='cf-4']") ;
-    By  MessageField =  By.xpath("//textarea[@id=\"cf-5\"]") ;
-    By  SendButton =  By.xpath("//input[@type='submit']");
-    By  ErrorMassage = By.xpath("/html/body/div[8]/div/div[9]/div/div/div/form/p[2]/span/span");
-    By  CompanyButton =  By.xpath("/html/body/header/nav[2]/div/div/ul/li[1]/a");
+    //Elements Locators
+    By contactUs = By.xpath("//button[@class='contact-label btn btn-1b']");
+    By NameField = By.xpath("//input[@id='cf-1']");
+    By EmailField = By.xpath("//input[@id='cf-2']");
+    By SubjectField = By.xpath("//input[@id='cf-4']");
+    By MessageField = By.xpath("//textarea[@id=\"cf-5\"]");
+    By SendButton = By.xpath("//input[@type='submit']");
+    By ErrorMassage = By.xpath("//*[@id=\"wpcf7-f875-o1\"]/form/p[2]/span/span");
+
     public HomePageClass(WebDriver driver) {
         super();
-        this.driver= driver;
+        this.driver = driver;
     }
+
     public void ContactUs() {
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("window.scrollBy(0,1000)");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-       driver.findElement(contactUs ).click();
+        driver.findElement(contactUs).click();
 
     }
 
@@ -61,30 +61,29 @@ public class HomePageClass extends BaseClass {
         driver.findElement(SendButton).click();
     }
 
-    public String ErrorMassage() throws InterruptedException {
-        Thread.sleep(1000);
-        BaseClass.waitForVisibility (driver, 100, ErrorMassage);
+    public String ErrorMassage() {
+        BaseClass.presenceOfElement(driver, 30, ErrorMassage);
+
         String ErrorMessage = driver.findElement(ErrorMassage).getText();
-        return ErrorMessage ;
+        return ErrorMessage;
     }
-    public void openCompanyTab() throws InterruptedException {
-        WebElement CompanyTab =
-                driver.findElement(By.xpath("//*[@id='menu-main-nav-1']/li[1]/a"));
-        WebDriverWait wait = new WebDriverWait(driver,60);
+
+    public void openCompanyTab() {
+        WebElement CompanyTab = driver.findElement(By.xpath("//*[@id='menu-main-nav-1']/li[1]/a"));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.elementToBeClickable(CompanyTab));
         Actions action = new Actions(driver);
-        action.moveToElement(CompanyTab) ;
+        action.moveToElement(CompanyTab);
         action.clickAndHold(CompanyTab);
         action.doubleClick(CompanyTab).perform();
 
 
-
     }
-    public  void openCareerTab()  {
-        WebElement CareerTab =
-                driver.findElement(By.xpath("//*[@id='menu-main-nav-1']/li[5]/a"));
 
-        WebDriverWait wait = new WebDriverWait(driver,30);
+    public void openCareerTab() {
+        WebElement CareerTab = driver.findElement(By.xpath("//*[@id='menu-main-nav-1']/li[5]/a"));
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(CareerTab));
         Actions action = new Actions(driver);
         action.click(CareerTab).perform();

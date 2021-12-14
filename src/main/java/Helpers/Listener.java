@@ -83,14 +83,12 @@ public class Listener implements ISuiteListener, ITestListener, IInvokedMethodLi
 
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("Test: ["
-                + context.getName() + "] Started" + " ****************************************************");
+        System.out.println("Test: [" + context.getName() + "] Started" + " ****************************************************");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        System.out.println("Test: ["
-                + context.getName() + "] Finished");
+        System.out.println("Test: [" + context.getName() + "] Finished");
 
     }
 }
